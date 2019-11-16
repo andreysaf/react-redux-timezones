@@ -1,20 +1,25 @@
 import React from 'react';
 
-class ImageCard extends React.Component {
-    render() {
+class CityCard extends React.Component {
+  onDelete = () => {
+    console.log(this.props);
+    //this.props.onDelete(this.props.id);
+  }
 
-        return (
-            <div className="card">
-                <div className="content">
-                  <div className="header">{this.props.name}</div>
-                  <div className="meta">Friend</div>
-                  <div className="description">
-                    Elliot Fu is a film-maker from New York.
-                  </div>
-                </div>
+  render() {
+    return (
+        <div className="card">
+            <div className="content">
+              <i className="right floated close icon" onClick={this.onDelete}></i>
+              <div className="header">{this.props.name}</div>
+              <div className="meta">Friend</div>
+              <div className="description">
+                Elliot Fu is a film-maker from New York.
+              </div>
             </div>
-        );
-    }
+        </div>
+    );
+  }
 }
 
-export default ImageCard;
+export default CityCard;

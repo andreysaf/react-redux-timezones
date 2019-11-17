@@ -6,13 +6,10 @@ class App extends React.Component{
     state = { cities: [] };
 
     onDelete = (id) => {
-        console.log(id);
-        let array = [...this.state.cities];
-        let index = array.indexOf(id);
-        if (index !== -1) {
-            array.splice(index, 1);
-            this.setState({cities: array});
-        }
+        let prevState = [...this.state.cities];
+        let newState = prevState.filter(city => city.id !== id);
+        this.setState({cities: newState});
+        console.log(this.state);
     }
 
     onSearchSubmit = async (term) => {

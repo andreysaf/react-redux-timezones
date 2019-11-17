@@ -2,8 +2,7 @@ import React from 'react';
 
 class CityCard extends React.Component {
   onDelete = () => {
-    console.log(this.props);
-    //this.props.onDelete(this.props.id);
+    this.props.onDelete(this.props.cityId);
   }
 
   render() {

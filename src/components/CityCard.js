@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteCity } from '../actions';
 
 class CityCard extends React.Component {
   onDelete = () => {
-    this.props.onDelete(this.props.cityId);
+    this.props.deleteCity(this.props.name);
   }
 
   render() {
@@ -21,4 +23,4 @@ class CityCard extends React.Component {
   }
 }
 
-export default CityCard;
+export default connect(null, { deleteCity })(CityCard);

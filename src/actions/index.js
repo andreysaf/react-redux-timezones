@@ -1,5 +1,6 @@
 import {
     FETCH_CITY,
+    FETCH_FAIL,
     ADD_CITY,
     DELETE_CITY
 } from './types';
@@ -21,7 +22,13 @@ export const deleteCity = (name) => {
 export const fetchCity = (name) => {
     return async (dispatch) => {
         const response = await hereAPI.get(`/geocode.json?app_id=${APP_ID}&app_code=${APP_CODE}&searchtext=${name}`);
-        console.log(response);
-        dispatch({type: FETCH_CITY, payload: { name } });
+        const resultArray = response.data.Response.View;
+        if (resultArray.length > 0) {
+            const obj = resultArray[0].Result[0].Location;
+            dispatch({type: FETCH_CITY, payload: obj });
+        } else {
+            dispatch({type: FETCH_FAIL, payload: `No results found for ${name}` });
+        }
+        
     }
 }

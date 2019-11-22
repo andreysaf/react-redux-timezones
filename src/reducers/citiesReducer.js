@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import {
     FETCH_CITY,
+    FETCH_FAIL,
     ADD_CITY, 
     DELETE_CITY
 } from '../actions/types';
@@ -8,11 +9,13 @@ import {
 export default (state = [], action) => {
     switch (action.type) {
         case FETCH_CITY:
-            return { ...state, [action.payload.name]: action.payload };
+            return { ...state, [action.payload.LocationId]: action.payload };
+        case FETCH_FAIL:
+            return { ...state, error: action.payload };
         case ADD_CITY:
-            return { ...state, [action.payload.name]: action.payload };
+            return { ...state, [action.payload.LocationId]: action.payload };
         case DELETE_CITY: 
-            return _.omit(state, action.payload);
+            return _.omit(state, action.payload.LocationId);
         default:
             return state;
     }

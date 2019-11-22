@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addCity } from '../actions';
+import { fetchCity } from '../actions';
 
 class SearchBar extends React.Component {
     state = { term: '' };
 
     onFormSubmit = (e) => {
         e.preventDefault();
-        this.props.addCity(this.state.term);
+        this.props.fetchCity(this.state.term);
     }
 
     render () {
@@ -21,4 +21,4 @@ class SearchBar extends React.Component {
     }
 }
 
-export default connect(null, { addCity })(SearchBar);
+export default connect(null, { fetchCity })(SearchBar);

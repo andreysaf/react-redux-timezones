@@ -21,7 +21,7 @@ export const deleteCity = (name) => {
 
 export const fetchCity = (name) => {
     return async (dispatch) => {
-        const response = await hereAPI.get(`/geocode.json?app_id=${APP_ID}&app_code=${APP_CODE}&searchtext=${name}`);
+        const response = await hereAPI.get(`/geocode.json?app_id=${APP_ID}&app_code=${APP_CODE}&searchtext=${name}&gen=9&locationattributes=tz`);
         const resultArray = response.data.Response.View;
         if (resultArray.length > 0) {
             const obj = resultArray[0].Result[0].Location;
@@ -29,6 +29,5 @@ export const fetchCity = (name) => {
         } else {
             dispatch({type: FETCH_FAIL, payload: `No results found for ${name}` });
         }
-        
     }
 }

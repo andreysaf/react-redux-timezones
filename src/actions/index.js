@@ -13,9 +13,9 @@ export const addCity = (name) => {
     }
 }
 
-export const deleteCity = (name) => {
+export const deleteCity = (id) => {
     return (dispatch) => { 
-        dispatch({type: DELETE_CITY, payload: { name } });
+        dispatch({type: DELETE_CITY, payload: { id } });
     }
 }
 

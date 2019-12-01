@@ -5,7 +5,11 @@ import CityCard from './CityCard';
 class CityList extends React.Component {
     renderCitiesList() {
         const citiesList = this.props.cities.map((city) => {
-            return <CityCard key={city.LocationId} cityId={city.LocationId} name={city.Address.Label}/>;
+            return <CityCard key={city.LocationId} 
+            cityId={city.LocationId} 
+            offset={city.AdminInfo.TimeZone.offset}
+            nameDstLong={city.AdminInfo.TimeZone.nameDstLong}
+            name={city.Address.Label}/>;
         });
         return citiesList;
     }

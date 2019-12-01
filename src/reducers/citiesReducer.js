@@ -12,7 +12,7 @@ export default (state = [], action) => {
         case ADD_CITY:
             return { ...state, [action.payload.LocationId]: action.payload };
         case DELETE_CITY: 
-            return _.omit(state, action.payload.LocationId);
+            return _.omit(state, action.payload.id);
         default:
             return state;
     }

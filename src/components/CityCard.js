@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { deleteCity } from '../actions';
 
@@ -6,8 +7,23 @@ class CityCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: new Date(new Date().getTime() + (this.props.offset)).toLocaleString()
+      time: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY h:mm A')
     };
+  }
+
+  componentDidMount() {
+    this.intervalID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+  tick() {
+    this.setState({
+      time: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY h:mm A')
+    });
   }
 
   onDelete = () => {

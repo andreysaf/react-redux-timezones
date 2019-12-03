@@ -1,3 +1,3 @@
 # react-timezones
 
-Check it out on [Heroky](http://react-timezones.herokuapp.com/).
+Check it out on [Heroku](http://react-timezones.herokuapp.com/).

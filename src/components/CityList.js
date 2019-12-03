@@ -1,4 +1,5 @@
 import React from 'react';
+import './CityList.css';
 import { connect } from 'react-redux';
 import CityCard from './CityCard';
 

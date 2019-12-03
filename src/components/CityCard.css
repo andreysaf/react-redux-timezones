@@ -1,0 +1,27 @@
+.time {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    color: #fff!important;
+    margin: 30px 0 20px 0;
+}
+
+.date {
+    font-size: 18px;
+}
+
+.city {
+    font-size: 20px;
+    margin: 20px 0 5px 0;
+}
+
+.card {
+    background-color: #242424!important;
+    border:none!important;
+    box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.16)!important;
+    color: #CBCBCB!important;
+}
+
+.ui.card .meta, .ui.cards>.card .meta {
+    color: #CBCBCB!important;
+}

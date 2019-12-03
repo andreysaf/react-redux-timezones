@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import './CityCard.css';
 import { connect } from 'react-redux';
 import { deleteCity } from '../actions';
 
@@ -7,22 +8,36 @@ class CityCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY h:mm A')
+      time: moment().utcOffset(this.props.offset/60).format('h:mm A'),
+      date: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY'),
     };
   }
 
   componentDidMount() {
-    this.intervalID = setInterval(
-      () => this.tick(),
+    this.intervalTime = setInterval(
+      () => this.updateTime(),
       1000
     );
+    this.intervalDay = setInterval(
+      () => this.updateDate(),
+      60000,
+    )
   }
+
   componentWillUnmount() {
-    clearInterval(this.intervalID);
+    clearInterval(this.intervalTime);
+    clearInterval(this.intervalDay);
   }
-  tick() {
+
+  updateTime() {
     this.setState({
-      time: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY h:mm A')
+      time: moment().utcOffset(this.props.offset/60).format('h:mm A')
+    });
+  }
+
+  updateDate() {
+    this.setState({
+      date: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY')
     });
   }
 
@@ -35,8 +50,9 @@ class CityCard extends React.Component {
         <div className="card">
             <div className="content">
               <i className="right floated close icon" onClick={this.onDelete}></i>
-              <div className="header">{this.props.name}</div>
               <div className="time">{this.state.time}</div>
+              <div className="date">{this.state.date}</div> 
+              <div className="city">{this.props.name}</div>     
               <div className="meta">{this.props.nameDstLong}</div>
               {/* <div className="description">
                 Elliot Fu is a film-maker from New York.

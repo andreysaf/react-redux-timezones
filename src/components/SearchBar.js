@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCity } from '../actions';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
     state = { term: '' };

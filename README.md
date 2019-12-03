@@ -5,8 +5,12 @@ Check it out on [Heroku](http://react-timezones.herokuapp.com/).
 #### Things to do 
 
 - [ ] add slider that adds time to all cards.
+- [ ] add search suggestions.
+- [ ] add what time you should schedule the meeting from and to.
 
 https://thenounproject.com/search/?q=close&i=988406
-feathericons.com
+https://feathericons.com
+
+
 
 

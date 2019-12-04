@@ -2,6 +2,8 @@
 
 Check it out on [Heroku](http://react-timezones.herokuapp.com/).
 
+![Screenshot](/screenshot.png?raw=true "Screenshot")
+
 #### Things to do 
 
 - [ ] add slider that adds time to all cards.

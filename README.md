@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 You will need to get an APP_ID and APP_CODE from [HERE APIs](https://developer.here.com).
 
-After your file keys.js should look like this and place it in src/apis/keys.js:
+After your file keys.js should look like this and place it in `src/apis/keys.js`:
 
 ```
 export const APP_CODE = 'jkh23jh23k4h2k3jh4k';

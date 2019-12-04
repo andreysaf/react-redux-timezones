@@ -15,5 +15,13 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## APIs
 
+You will need to get an APP_ID and APP_CODE from [HERE APIs](https://developer.here.com).
 
+After your file keys.js should look like this and place it in src/apis/keys.js:
+
+```
+export const APP_CODE = 'jkh23jh23k4h2k3jh4k';
+export const APP_ID = `kj34kj34k3jk4j3j4343`;
+```

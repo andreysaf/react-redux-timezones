@@ -4,15 +4,16 @@ Check it out on [Heroku](http://react-timezones.herokuapp.com/).
 
 ![Screenshot](https://github.com/andreysaf/react-redux-timezones/blob/master/screen.png?raw=true "Screenshot")
 
-#### Things to do 
+## Installation
 
-- [ ] add slider that adds time to all cards.
-- [ ] add search suggestions.
-- [ ] add what time you should schedule the meeting from and to.
+In the project directory, you can run:
 
-https://thenounproject.com/search/?q=close&i=988406
-https://feathericons.com
+### `npm install`
 
+### `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 

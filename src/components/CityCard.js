@@ -49,7 +49,7 @@ class CityCard extends React.Component {
     return (
         <div className="card">
             <div className="content">
-              <i className="right floated close icon" onClick={this.onDelete}></i>
+              <i className="right floated im im-x-mark 24" onClick={this.onDelete}></i>
               <div className="time">{this.state.time}</div>
               <div className="date">{this.state.date}</div> 
               <div className="city">{this.props.name}</div>

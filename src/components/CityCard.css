@@ -26,3 +26,7 @@
 .ui.card .meta, .ui.cards>.card .meta {
     color: #CBCBCB!important;
 }
+
+.icon {
+    fill: #CBCBCB;
+}

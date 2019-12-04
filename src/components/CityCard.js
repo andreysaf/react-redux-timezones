@@ -52,11 +52,7 @@ class CityCard extends React.Component {
               <i className="right floated close icon" onClick={this.onDelete}></i>
               <div className="time">{this.state.time}</div>
               <div className="date">{this.state.date}</div> 
-              <div className="city">{this.props.name}</div>     
-              <div className="meta">{this.props.nameDstLong}</div>
-              {/* <div className="description">
-                Elliot Fu is a film-maker from New York.
-              </div> */}
+              <div className="city">{this.props.name}</div>
             </div>
         </div>
     );

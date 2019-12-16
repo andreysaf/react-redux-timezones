@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import "./CityCard.css";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteCity } from "../actions";
 
 const CityCard = (props) => {
+  const dispatch = useDispatch();
+
   const [time, setTime] = useState(
     moment()
       .utcOffset(props.offset / 60)
       .format("h:mm A")
   );
+
   const [date, setDate] = useState(
     moment()
       .utcOffset(props.offset / 60)
       .format("MMMM Do, YYYY")
   );
-
-  const onDelete = () => {
-    props.deleteCity(props.cityId);
-  }
 
   useEffect(() => {
     const intervalTime = setInterval(
@@ -32,8 +31,8 @@ const CityCard = (props) => {
     );
 
     return () => {
-      clearInterval(this.intervalTime);
-      clearInterval(this.intervalDay);
+      clearInterval(intervalTime);
+      clearInterval(intervalDay);
     };
   }, []);
 
@@ -42,7 +41,7 @@ const CityCard = (props) => {
       <div className="content">
         <i
           className="right floated im im-x-mark 24"
-          onClick={onDelete}
+          onClick={() => dispatch(deleteCity(props.cityId))}
         ></i>
         <div className="time">{time}</div>
         <div className="date">{date}</div>
@@ -52,4 +51,4 @@ const CityCard = (props) => {
   );
 };
 
-export default connect(null, { deleteCity })(CityCard);
+export default CityCard;

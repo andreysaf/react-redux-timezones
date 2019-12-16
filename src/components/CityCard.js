@@ -4,29 +4,29 @@ import "./CityCard.css";
 import { useDispatch } from "react-redux";
 import { deleteCity } from "../actions";
 
-const CityCard = (props) => {
+const CityCard = ({offset, name, cityId}) => {
   const dispatch = useDispatch();
 
   const [time, setTime] = useState(
     moment()
-      .utcOffset(props.offset / 60)
+      .utcOffset(offset / 60)
       .format("h:mm A")
   );
 
   const [date, setDate] = useState(
     moment()
-      .utcOffset(props.offset / 60)
+      .utcOffset(offset / 60)
       .format("MMMM Do, YYYY")
   );
 
   useEffect(() => {
     const intervalTime = setInterval(
-      () => setTime(moment().utcOffset(props.offset/60).format('h:mm A')),
+      () => setTime(moment().utcOffset(offset/60).format('h:mm A')),
       1000
     );
 
     const intervalDay = setInterval(
-      () => setDate(moment().utcOffset(props.offset/60).format('MMMM Do, YYYY')),
+      () => setDate(moment().utcOffset(offset/60).format('MMMM Do, YYYY')),
       60000,
     );
 
@@ -34,18 +34,18 @@ const CityCard = (props) => {
       clearInterval(intervalTime);
       clearInterval(intervalDay);
     };
-  }, []);
+  }, [offset]);
 
   return (
     <div className="card">
       <div className="content">
         <i
           className="right floated im im-x-mark 24"
-          onClick={() => dispatch(deleteCity(props.cityId))}
+          onClick={() => dispatch(deleteCity(cityId))}
         ></i>
         <div className="time">{time}</div>
         <div className="date">{date}</div>
-        <div className="city">{props.name}</div>
+        <div className="city">{name}</div>
       </div>
     </div>
   );

@@ -1,62 +1,55 @@
-import React from 'react';
-import moment from 'moment';
-import './CityCard.css';
-import { connect } from 'react-redux';
-import { deleteCity } from '../actions';
+import React, { useState, useEffect } from "react";
+import moment from "moment";
+import "./CityCard.css";
+import { connect } from "react-redux";
+import { deleteCity } from "../actions";
 
-class CityCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: moment().utcOffset(this.props.offset/60).format('h:mm A'),
-      date: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY'),
-    };
+const CityCard = (props) => {
+  const [time, setTime] = useState(
+    moment()
+      .utcOffset(props.offset / 60)
+      .format("h:mm A")
+  );
+  const [date, setDate] = useState(
+    moment()
+      .utcOffset(props.offset / 60)
+      .format("MMMM Do, YYYY")
+  );
+
+  const onDelete = () => {
+    props.deleteCity(props.cityId);
   }
 
-  componentDidMount() {
-    this.intervalTime = setInterval(
-      () => this.updateTime(),
+  useEffect(() => {
+    const intervalTime = setInterval(
+      () => setTime(moment().utcOffset(props.offset/60).format('h:mm A')),
       1000
     );
-    this.intervalDay = setInterval(
-      () => this.updateDate(),
+
+    const intervalDay = setInterval(
+      () => setDate(moment().utcOffset(props.offset/60).format('MMMM Do, YYYY')),
       60000,
-    )
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.intervalTime);
-    clearInterval(this.intervalDay);
-  }
-
-  updateTime() {
-    this.setState({
-      time: moment().utcOffset(this.props.offset/60).format('h:mm A')
-    });
-  }
-
-  updateDate() {
-    this.setState({
-      date: moment().utcOffset(this.props.offset/60).format('MMMM Do, YYYY')
-    });
-  }
-
-  onDelete = () => {
-    this.props.deleteCity(this.props.cityId);
-  }
-
-  render() {
-    return (
-        <div className="card">
-            <div className="content">
-              <i className="right floated im im-x-mark 24" onClick={this.onDelete}></i>
-              <div className="time">{this.state.time}</div>
-              <div className="date">{this.state.date}</div> 
-              <div className="city">{this.props.name}</div>
-            </div>
-        </div>
     );
-  }
-}
+
+    return () => {
+      clearInterval(this.intervalTime);
+      clearInterval(this.intervalDay);
+    };
+  }, []);
+
+  return (
+    <div className="card">
+      <div className="content">
+        <i
+          className="right floated im im-x-mark 24"
+          onClick={onDelete}
+        ></i>
+        <div className="time">{time}</div>
+        <div className="date">{date}</div>
+        <div className="city">{props.name}</div>
+      </div>
+    </div>
+  );
+};
 
 export default connect(null, { deleteCity })(CityCard);

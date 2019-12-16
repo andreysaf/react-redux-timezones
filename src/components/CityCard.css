@@ -3,7 +3,7 @@
     font-weight: 400;
     font-size: 50px;
     color: #fff!important;
-    margin: 30px 0 20px 0;
+    margin: 10px 0 20px 0;
 }
 
 .date {
@@ -12,7 +12,7 @@
 
 .city {
     font-size: 20px;
-    margin: 20px 0 5px 0;
+    margin: 10px 0 5px 0;
     color: #fff!important;
 }
 
@@ -29,4 +29,8 @@
 
 .icon {
     fill: #CBCBCB;
+}
+
+.im-x-mark {
+    font-size: 1em;
 }

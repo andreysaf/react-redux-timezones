@@ -1,15 +1,17 @@
 import {
     FETCH_CITY,
     FETCH_FAIL,
-    ADD_CITY,
+    SUGGEST_CITY,
     DELETE_CITY
 } from './types';
 import hereAPI from '../apis/hereAPI';
+import hereSuggest from '../apis/hereSuggest';
 import { APP_ID, APP_CODE } from '../apis/keys';
 
-export const addCity = (name) => {
-    return (dispatch) => {
-        dispatch({type: ADD_CITY, payload: { name } });
+export const suggestCity = (search) => {
+    return async (dispatch) => {
+        const response = await hereSuggest.get(`/suggest.json?app_id=${APP_ID}&app_code=${APP_CODE}&query=${search}`);
+        dispatch({type: SUGGEST_CITY, payload: response.data });
     }
 }
 

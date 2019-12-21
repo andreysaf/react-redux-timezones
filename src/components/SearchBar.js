@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Search, Grid, Header, Segment } from "semantic-ui-react";
-import { fetchCity, suggestCity } from "../actions";
+import { Search } from "semantic-ui-react";
+import { fetchCity, suggestCity, resetSuggestions } from "../actions";
 import "./SearchBar.css";
 
 const SearchBar = () => {
@@ -14,7 +14,9 @@ const SearchBar = () => {
   const onFormSubmit = (e, { result }) => {
     e.preventDefault();
     dispatch(fetchCity(result.title));
+    dispatch(resetSuggestions());
     setTerm("");
+    setResults([]);
   };
 
   const onChange = value => {
@@ -34,6 +36,7 @@ const SearchBar = () => {
 
   return (
     <Search
+      minCharacters={3}
       onResultSelect={onFormSubmit}
       onSearchChange={e => onChange(e.target.value)}
       results={results}

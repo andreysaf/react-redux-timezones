@@ -2,6 +2,7 @@ import {
     FETCH_CITY,
     FETCH_FAIL,
     SUGGEST_CITY,
+    RESET_SUGGESTIONS,
     DELETE_CITY
 } from './types';
 import hereAPI from '../apis/hereAPI';
@@ -12,6 +13,12 @@ export const suggestCity = (search) => {
     return async (dispatch) => {
         const response = await hereSuggest.get(`/suggest.json?app_id=${APP_ID}&app_code=${APP_CODE}&query=${search}`);
         dispatch({type: SUGGEST_CITY, payload: response.data });
+    }
+}
+
+export const resetSuggestions = () => {
+    return (dispatch) => {
+        dispatch({type: RESET_SUGGESTIONS});
     }
 }
 

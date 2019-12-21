@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import { Header } from 'semantic-ui-react'
 import CityList from './CityList';
 import './App.css'
 

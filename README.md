@@ -2,7 +2,7 @@
 
 Check it out on [Heroku](http://react-timezones.herokuapp.com/).
 
-![Screenshot](https://github.com/andreysaf/react-redux-timezones/blob/master/screen.png?raw=true "Screenshot")
+![Screenshot](https://github.com/andreysaf/react-redux-timezones/blob/master/screenshot.png?raw=true "Screenshot")
 
 ## Installation
 

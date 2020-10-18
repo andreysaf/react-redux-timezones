@@ -4,6 +4,10 @@ Check it out on [Heroku](http://react-timezones.herokuapp.com/).
 
 ![Screenshot](https://github.com/andreysaf/react-redux-timezones/blob/master/screenshot.png?raw=true "Screenshot")
 
+## Demo
+
+Check it out on [Heroku](http://react-timezones.herokuapp.com/). Note: it will take some time to load since Heroku will build it on demand.
+
 ## Installation
 
 In the project directory, you can run:
